@@ -8,9 +8,10 @@ os.system('modprobe w1-gpio')
 os.system('modprobe w1-therm')
 
 #device_folder = glob.glob(base_dir + '28*')[0]
-DeviceFile1 = '/sys/bus/w1/devices/28-80000007fc9e/w1_slave'
-DeviceFile2 = '/sys/bus/w1/devices/28-800000081184/w1_slave'
-DeviceFile3 = '/sys/bus/w1/devices/28-800000080fed/w1_slave'
+DeviceFile0 = '/sys/bus/w1/devices/28-800000081184/w1_slave'
+DeviceFile1 = '/sys/bus/w1/devices/28-00152c26fdee/w1_slave'
+DeviceFile2 = '/sys/bus/w1/devices/28-0315a4acc8ff/w1_slave'
+DeviceFile3 = '/sys/bus/w1/devices/28-00152335c4ee/w1_slave'
 
 
 def read_temp(DeviceFile):
@@ -27,6 +28,8 @@ def read_temp(DeviceFile):
         temp_f = temp_c * 9.0 / 5.0 + 32.0
         return temp_f
 	
+print(read_temp(DeviceFile0))
+time.sleep(1)
 print(read_temp(DeviceFile1))
 time.sleep(1)
 print(read_temp(DeviceFile2))
